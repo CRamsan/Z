@@ -1,15 +1,17 @@
-This is the introdutory file for NOT_YET_DEFINED.
+# This is the introdutory file for NOT_YET_DEFINED.
 
 The game is mainly a MMO-TBS(Massive Multiplayer Online Turn Based Strategy) game influenced a lot by the new set of casual games for mobile such as "word with friends" and "draw it". 
 On a standart TBS game like Advanced Wars, a game is bound to a session within a map. During the game session, each player has a limited time to complete their turn. Once the game is 
 over the results are shown and the user can play again. But with these new online games, a session is played between two players on an online simulation, but due to the online nature 
 of the game, each turn does not have any restriction on time. Once the simulation is completed, then each player gets their results and go back to a "lobby" and most probably invited 
-to play again. For this game, each player will own a region within a big tile-based world. From their location each user can fight to conquer adjacent tiles. To conquer each tile, the 
+to play again. 
+
+For this game, each player will own a region within a big tile-based world. From their location each user can fight to conquer adjacent tiles. To conquer each tile, the 
 user enters into combat, this combat mode would be equivalent to a game session of Advanced Wars. During each game session, each  user DOES have a time limit for taking an action, but 
 this is going to be on the range of hours. The game will then have two main workflows, one is going to be the battle mode/game session and the other is going to be the meta-game. 
 
 
-Meta-game workflow
+## Meta-game workflow
 
 The game will be run within a server that can host up to 2000 players. A player will register to have an account on the server then will be given a 'home' tile on the map. The 
 surrounding tiles might be neutral or enemy. One can fight for other peoples tiles but never for their 'home' tile. There is also the possibility of a player to practice their 
@@ -23,7 +25,7 @@ distribute resources from 'home' tile. The tiles that are furthest away from the
 hard to manage. It is important to notice that my personal opinion is that making friends should always be preferable to making foes.
 
 
-In-game workflow
+## In-game workflow
 
 The combat itself is going to be really similar to Advanced Wars with the except that once each player choses their moves, both moves are simulated at the same time. Each 
 player(currently limited to 1v1) will recieve a HQ on a tiled map, they then have to move their units to try to capture cities(in-game resources), barracks(produces infantry) and 
