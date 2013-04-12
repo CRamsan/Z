@@ -1,0 +1,5 @@
+Overview
+
+The main component of the game is going to be the server that handles all the players and their games and stats. This server will be written in Java and it will be composed of various 
+services that communicate between themself as well as expose their capabilites via a RESTful API. The idea of dividing the server on multiple services is to been able to scale the game 
+if needed and for been able to deploy on multiple computers.
