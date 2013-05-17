@@ -9,16 +9,16 @@ import main.Command;
 import main.Command.COMMAND;
 
 public class ServerNetwork extends BaseNetwork {
-	private ArrayList<GameConnection> connectionList;
+	private ArrayList<ServiceConnection> connectionList;
 	private Thread listeningThread;
 	private int connectionCap;
 	private int currentConnections;
 	private boolean isListening;
 
-	private ServerSocket listeningSocket;
+	private Socket listeningSocket;
 
 	public ServerNetwork(int maxConnections) {
-		this.connectionList = new ArrayList<GameConnection>();
+		this.connectionList = new ArrayList<ServiceConnection>();
 		this.connectionCap = maxConnections;
 		this.currentConnections = 0;
 	}
@@ -49,17 +49,36 @@ public class ServerNetwork extends BaseNetwork {
 
 	private void listeningLoop() {
 		try {
-			listeningSocket = new ServerSocket(4321);
+			//listeningSocket = new ServerSocket(4321);
+			listeningSocket = new Socket();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		} catch (IOException e) {
 			System.out.println("Could not listen on port: " + LISTENING_PORT);
 			System.exit(-1);
 		}
 		while (isListening) {
 			Socket incoming = null;
-			GameConnection connection = null;
+			ServiceConnection connection = null;
 			try {
 				incoming = listeningSocket.accept();
-				connection = new GameConnection(incoming, this);
+				connection = new ServiceConnection(incoming, this);
 				if (currentConnections < connectionCap) {
 					connection.start();
 					this.connectionList.add(connection);
@@ -90,7 +109,7 @@ public class ServerNetwork extends BaseNetwork {
 	}
 
 	@Override
-	protected void connectionEnded(GameConnection connection) {
+	protected void connectionEnded(ServiceConnection connection) {
 		this.connectionList.remove(connectionCap);
 		this.currentConnections--;
 	}
@@ -100,7 +119,7 @@ public class ServerNetwork extends BaseNetwork {
 	}
 
 	public void sendCommandToAllClient(Command action) {
-		for (GameConnection coonection : connectionList) {
+		for (ServiceConnection coonection : connectionList) {
 			coonection.sendCommand(action);
 		}
 	}

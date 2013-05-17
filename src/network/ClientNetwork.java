@@ -8,7 +8,7 @@ import main.Command;
 
 public class ClientNetwork extends BaseNetwork {
 
-	private GameConnection serverConnection;
+	private ServiceConnection serverConnection;
 
 	public ClientNetwork() {
 
@@ -18,7 +18,7 @@ public class ClientNetwork extends BaseNetwork {
 
 	public boolean connect(String ipAddress) {
 		try {
-			serverConnection = new GameConnection(new Socket(ipAddress,
+			serverConnection = new ServiceConnection(new Socket(ipAddress,
 					LISTENING_PORT), this);
 			serverConnection.start();
 		} catch (UnknownHostException e) {
@@ -41,7 +41,7 @@ public class ClientNetwork extends BaseNetwork {
 	}
 
 	@Override
-	protected void connectionEnded(GameConnection connection) {
+	protected void connectionEnded(ServiceConnection connection) {
 		serverConnection = null;
 	}
 }

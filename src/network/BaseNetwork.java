@@ -7,7 +7,7 @@ import event.IEventReceivedListener;
 import event.IEventSource;
 
 public abstract class BaseNetwork implements IEventSource {
-	public static final short LISTENING_PORT = 4321;
+	public static final short LISTENING_PORT = 4931;
 
 	private EventListenerList listenerList = new EventListenerList();
 
@@ -33,5 +33,5 @@ public abstract class BaseNetwork implements IEventSource {
 		}
 	}
 
-	protected abstract void connectionEnded(GameConnection connection);
+	protected abstract void connectionEnded(ServiceConnection connection);
 }

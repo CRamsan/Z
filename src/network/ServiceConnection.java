@@ -10,18 +10,17 @@ import main.Command;
 import event.CommandReceivedEvent;
 import event.IEventSource;
 
-public class GameConnection extends Thread {
+public class ServiceConnection extends Thread {
 
 	private Socket socket;
 	private int id;
 	private PrintWriter out = null;
 	private BufferedReader in = null;
-	private IEventSource taskSource;
 	private boolean stop = false;
 	private Command action;
 	private BaseNetwork network;
 
-	public GameConnection(Socket socket, BaseNetwork network) {
+	public ServiceConnection(Socket socket, BaseNetwork network) {
 		super();
 		this.socket = socket;
 		try {
@@ -41,7 +40,8 @@ public class GameConnection extends Thread {
 			while ((inputLine = in.readLine()) != null && !stop) {
 
 				System.out.println("Message recieved " + inputLine);
-				taskSource.firecommandReceivedEvent(new CommandReceivedEvent());
+				//TODO Handle recieved message
+				//taskSource.firecommandReceivedEvent(new CommandReceivedEvent());
 			}
 			System.out.println("Thread for client stopped correctly");
 		} catch (IOException e) {
